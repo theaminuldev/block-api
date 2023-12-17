@@ -4,5 +4,5 @@
  */
 ?>
 <p <?php echo get_block_wrapper_attributes(); ?>>
-	<?php esc_html_e( 'Data-table – hello from a dynamic block!', 'block-api' ); ?>
+	<?php esc_html_e( 'Hello World – hello from a dynamic block!', 'block-api' ); ?>
 </p>

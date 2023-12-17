@@ -1,0 +1,15 @@
+{
+    "name": "api/block-api",
+    "autoload": {
+        "psr-4": {
+            "BlockAPI\\": "includes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "theaminuldev",
+            "email": "mdaminulislam2015bd@gmail.com"
+        }
+    ],
+    "require": {}
+}
