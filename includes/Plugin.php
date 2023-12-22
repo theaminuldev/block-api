@@ -93,6 +93,23 @@ class Plugin{
      */
     private function init_block_lists(){
         new BlockList\ListOfBlocks();
+        new BlockData\BlockData();
+        // $stored_data = (new \BlockAPI\BlockData\BlockData())->get_stored_data();
+
+        // error_log(print_r($stored_data, true));
+
+        // // Get a specific option value
+        // $option_value = get_option('block_api_data');
+
+        // // Check if the option exists before using it
+        // if ($option_value !== false) {
+        //     // Option exists, do something with $option_value
+        //     error_log(print_r( 'Option value: ' . $option_value, true));
+        // } else {
+        //     // Option doesn't exist
+        //    error_log(print_r( 'Option doesn\'t exist', true));
+        // }
+
     }
 
     /**
@@ -121,6 +138,15 @@ class Plugin{
      */
     public function __construct(){
         $this->init();
+
+        // if (get_option('block_api_data') !== true) {
+        //     // Trigger the data fetch
+        //     // do_action('block_api_custom_fetch');
+        //     apply_filters('block_api_custom_fetch', true);
+
+        // }
+        // apply_filters('block_api_custom_fetch', true);
+        // do_action('block_api_custom_fetch');
 
     }
 }

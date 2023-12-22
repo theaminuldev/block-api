@@ -27,6 +27,8 @@ define('BLOCKAPI_PATH', plugin_dir_path(BLOCKAPI__FILE__));
 define('BLOCKAPI_URL', plugins_url('/', BLOCKAPI__FILE__));
 define('BLOCKAPI_ASSETS_PATH', BLOCKAPI_PATH . 'assets/');
 define('BLOCKAPI_ASSETS_URL', BLOCKAPI_URL . 'assets/');
+define('BLOCKAPI_SRC_PATH', BLOCKAPI_PATH . 'src/');
+define('BLOCKAPI_BUILD_PATH', BLOCKAPI_PATH  . 'build/');
 
 add_action('plugins_loaded', 'blockapi_load_plugin_textdomain');
 
@@ -96,3 +98,36 @@ function blockapi_fail_wp_version(){
     $html_message = sprintf('<div class="error">%s</div>', wpautop($message));
     echo wp_kses_post($html_message);
 }
+
+
+
+// Add this code in your theme's functions.php file or a custom plugin
+
+// function register_custom_api_endpoint() {
+//     register_rest_route('block-api/v1', '/store-data/', array(
+//         'methods' => 'GET',
+//         'callback' => 'store_data_callback',
+//     ));
+// }
+
+// function store_data_callback($data) {
+//     // You can implement your logic here to fetch and store data
+//     $api_url = 'https://miusage.com/v1/challenge/1/';
+//     $response = wp_remote_get($api_url);
+
+//     if (!is_wp_error($response)) {
+//         $body = wp_remote_retrieve_body($response);
+//         $api_data = json_decode($body, true);
+
+//         // Store the API data in the WordPress options table
+//         update_option('block_api_data', $api_data);
+
+//         // Optionally, you can return a response or do other processing
+//         // return array('status' => 'success', 'data' => $api_data);
+//     } else {
+//         return array('status' => 'error', 'message' => 'Failed to fetch data from the API');
+//     }
+// }
+
+// // Hook the registration function to the 'rest_api_init' action
+// add_action('rest_api_init', 'register_custom_api_endpoint');

@@ -33,21 +33,16 @@ class ListOfBlocks {
      * @see https://developer.wordpress.org/reference/functions/register_block_type/
      */
     public function block_api_block_api_block_init() {
-        // register_block_type( __DIR__ . '/build' );
+        $directory = BLOCKAPI_BUILD_PATH . 'blocks/';
 
-
-            $directory = __DIR__ . '/build/blocks/'; 
-            $files = glob($directory . '*');
-
-            error_log(print_r($files, true));
-
+        if(file_exists($directory)){
+            $files = glob($directory.'*/');
             foreach ($files as $file) {
-               error_log(print_r($file, true));
+                register_block_type($file);
             }
-
+        }
 
     }
-    
 
 }
 ?>
